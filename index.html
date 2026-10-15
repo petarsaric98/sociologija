@@ -96,7 +96,7 @@
   .flip__a[hidden] { display: none; }
   .flip__hint { font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--faint); font-weight: 700; margin: 0 0 .2rem 1.4rem; }
 
-  /* --- kviz: lekcije 1 i 2 --- */
+  /* --- kviz: sve lekcije --- */
   .quiz { padding: 0; overflow: hidden; scroll-margin-top: calc(var(--nav-h) + 1rem); }
   .quiz__screen { padding: clamp(1.5rem, 4vw, 2.6rem); }
   .quiz__screen[hidden] { display: none; }
@@ -190,6 +190,7 @@
       <a class="nav__link nav__link--opt" href="sociologija2istrazivanje.html">Lekcija 2</a>
       <a class="nav__link nav__link--opt" href="sociologija3elite.html">Lekcija 3</a>
       <a class="nav__link nav__link--opt" href="sociologija4rizik.html">Lekcija 4</a>
+      <a class="nav__link nav__link--opt" href="sociologija5devijantnost.html">Lekcija 5</a>
       <a class="nav__link" href="#kviz">Kviz</a>
       <a class="nav__link" href="maturakviz.html">Matura</a>
       <button class="icon-btn" type="button" data-theme-toggle aria-label="Promijeni temu">
@@ -222,7 +223,7 @@
           <a class="btn btn--primary btn--lg" href="sociologija1perspektive.html">
             Započni lekciju 1 <span class="btn__arrow" aria-hidden="true">→</span>
           </a>
-          <a class="btn btn--ghost btn--lg" href="#kviz">Kviz: lekcije 1 i 2</a>
+          <a class="btn btn--ghost btn--lg" href="#kviz">Kviz: sve lekcije</a>
           <a class="btn btn--ghost btn--lg" href="maturakviz.html">Priprema za maturu</a>
         </div>
       </div>
@@ -233,11 +234,11 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="kicker">Gradivo</p>
-        <h2>Četiri lekcije i matura</h2>
+        <h2>Pet lekcija i matura</h2>
         <p class="lede">
           Prva lekcija objašnjava kako sociolozi gledaju na isti događaj iz tri različita
           kuta. Druga pokazuje kako se do socioloških tvrdnji uopće dolazi. Treća pita tko
-          zapravo vlada društvom, a izborna četvrta zašto se bojimo pogrešnih stvari. Baza
+          zapravo vlada društvom, izborna četvrta zašto se bojimo pogrešnih stvari, a peta zašto se većina ljudi drži pravila. Baza
           s mature zatim provjerava znanje na zadatcima koji su stvarno bili na ispitu.
         </p>
       </div>
@@ -319,6 +320,27 @@
             <div class="lesson-card__topics">
               <span class="tag">Beck · Furedi</span>
               <span class="tag">Percepcija rizika</span>
+            </div>
+            <div class="lesson-card__foot">
+              <span>Otvori lekciju</span><span aria-hidden="true">→</span>
+            </div>
+          </div>
+        </a>
+
+        <a class="card lesson-card reveal" href="sociologija5devijantnost.html">
+          <div class="lesson-card__body">
+            <div class="lesson-card__num">05</div>
+            <span class="tag tag--brand">Lekcija</span>
+            <h3 style="margin-top:.9rem">Devijantnost i društvena kontrola</h3>
+            <p>
+              Zašto se većina ljudi drži pravila? Norme i sankcije, Durkheimova anomija,
+              Mertonovih pet prilagodbi, Hirschijeve četiri društvene veze i teorija
+              razbijenih prozora.
+            </p>
+            <div class="lesson-card__topics">
+              <span class="tag">Durkheim · Merton · Hirschi</span>
+              <span class="tag">Anomija</span>
+              <span class="tag">Razbijeni prozori</span>
             </div>
             <div class="lesson-card__foot">
               <span>Otvori lekciju</span><span aria-hidden="true">→</span>
@@ -451,15 +473,15 @@
     </div>
   </section>
 
-  <!-- KVIZ: LEKCIJE 1 I 2 -------------------------------------------- -->
+  <!-- KVIZ: SVE LEKCIJE ---------------------------------------------- -->
   <section class="section" id="kviz">
     <div class="wrap">
       <div class="section-head reveal">
         <p class="kicker">Provjeri znanje</p>
-        <h2>Kviz: lekcije 1 i 2</h2>
+        <h2>Kviz: sve lekcije</h2>
         <p class="lede">
-          Teorijske perspektive i sociološko istraživanje u jednom kvizu. Pitanja se
-          izvlače nasumično, pa je svaki pokušaj malo drukčiji.
+          Pitanja iz lekcija 1–4 u jednom kvizu. Odaberi sve lekcije ili samo jednu.
+          Pitanja se izvlače nasumično, pa je svaki pokušaj malo drukčiji.
         </p>
       </div>
 
@@ -473,7 +495,7 @@
               <div class="scope" role="radiogroup" aria-labelledby="scopeLabel">
                 <button class="scope__opt" type="button" role="radio" aria-checked="true" data-scope="all">
                   <span class="scope__dot" aria-hidden="true"></span>
-                  <span class="scope__name">Obje lekcije <span class="scope__sub">Pola pitanja iz svake lekcije</span></span>
+                  <span class="scope__name">Sve lekcije <span class="scope__sub">Jednako pitanja iz svake lekcije</span></span>
                   <span class="scope__count" data-count="all"></span>
                 </button>
                 <button class="scope__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-scope="1">
@@ -485,6 +507,16 @@
                   <span class="scope__dot" aria-hidden="true"></span>
                   <span class="scope__name">Lekcija 2 <span class="scope__sub">Sociološko istraživanje</span></span>
                   <span class="scope__count" data-count="2"></span>
+                </button>
+                <button class="scope__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-scope="3">
+                  <span class="scope__dot" aria-hidden="true"></span>
+                  <span class="scope__name">Lekcija 3 <span class="scope__sub">Teorija elita</span></span>
+                  <span class="scope__count" data-count="3"></span>
+                </button>
+                <button class="scope__opt" type="button" role="radio" aria-checked="false" tabindex="-1" data-scope="4">
+                  <span class="scope__dot" aria-hidden="true"></span>
+                  <span class="scope__name">Lekcija 4 <span class="scope__sub">Sociologija rizika i straha</span></span>
+                  <span class="scope__count" data-count="4"></span>
                 </button>
               </div>
               <button class="btn btn--primary btn--lg" type="button" id="quizGo" style="margin-top:1.4rem">
@@ -648,6 +680,7 @@
       <a href="sociologija2istrazivanje.html">Lekcija 2</a> ·
       <a href="sociologija3elite.html">Lekcija 3</a> ·
       <a href="sociologija4rizik.html">Lekcija 4</a> ·
+      <a href="sociologija5devijantnost.html">Lekcija 5</a> ·
       <a href="#kviz">Kviz</a> ·
       <a href="maturakviz.html">Matura</a>
     </p>
@@ -669,7 +702,7 @@
 (function () {
   'use strict';
 
-  /* --- Kviz: lekcije 1 i 2 -------------------------------------------
+  /* --- Kviz: sve lekcije ----------------------------------------------
      Svako pitanje: l = lekcija, q = pitanje, o = ponuđeni odgovori
      (prvi je uvijek točan — redoslijed se miješa pri prikazu), why = objašnjenje. */
   var BANK = [
@@ -756,12 +789,64 @@
       why: 'Ako jedna osoba ne nađe posao, to je njezin problem; ako ga ne nađe dvadeset, to je društveno pitanje.' },
     { l: 2, q: 'Po čemu se znanstveno znanje razlikuje od zdravorazumskog?',
       o: ['Postupak je opisan tako da ga drugi mogu ponoviti i provjeriti', 'Uvijek potvrđuje ono što „svi znaju”', 'Temelji se na osobnom iskustvu istraživača', 'Ne smije se opovrgnuti'],
-      why: 'Znanstvena tvrdnja nastaje sustavnim prikupljanjem podataka i otvorena je provjeri — pa i opovrgavanju.' }
+      why: 'Znanstvena tvrdnja nastaje sustavnim prikupljanjem podataka i otvorena je provjeri — pa i opovrgavanju.' },
+
+    // Lekcija 3 — teorija elita
+    { l: 3, q: 'Što je središnja tvrdnja Paretove teorije elita?',
+      o: ['U svakom društvu vlada mala manjina; mijenja se samo tko je u njoj', 'U demokraciji vlada većina građana', 'Elite nestaju kad se uvede opće pravo glasa', 'Vlast uvijek pripada najbogatijima'],
+      why: 'Pareto tvrdi da elita postoji u monarhiji, demokraciji i diktaturi jednako. Promjenjiv je samo njezin sastav.' },
+    { l: 3, q: 'Na koja dva dijela Pareto dijeli samu elitu?',
+      o: ['Vladajuću i nevladajuću elitu', 'Političku i vjersku elitu', 'Staru i novu elitu', 'Bogatu i obrazovanu elitu'],
+      why: 'Vladajuća elita donosi odluke, a nevladajuću čine najsposobniji izvan vlasti. Iz nje dolaze izazivači.' },
+    { l: 3, q: 'Kako vladaju „lisice” u Paretovoj podjeli?',
+      o: ['Lukavstvom, pregovorima i kompromisima', 'Silom i vojnom moću', 'Isključivo na temelju tradicije', 'Uz pomoć vjerskih autoriteta'],
+      why: 'Lisice biraju dogovor umjesto sukoba. Slabost im je što postaju korumpirane i ne znaju upotrijebiti silu kad je potrebna.' },
+    { l: 3, q: 'Što je kruženje (cirkulacija) elita?',
+      o: ['Stalno smjenjivanje vladajućih skupina kroz povijest', 'Seljenje elite iz grada u grad', 'Redovito održavanje izbora', 'Razmjena elita među državama'],
+      why: 'Nijedna elita nije vječna: kad degenerira, zamjenjuje je sposobnija skupina. „Povijest je groblje aristokracija.”' },
+    { l: 3, q: 'Kad, prema Paretu, najčešće dolazi do revolucije?',
+      o: ['Kad se elita zatvori i ne prima sposobne ljude odozdo', 'Kad elita stalno prima nove članove', 'Kad mase postanu bogatije', 'Kad se vlast dijeli između lisica i lavova'],
+      why: 'Otvorena elita obnavlja se postupno. Zatvorena gomila nesposobne na vrhu i sposobne dolje, pa napetost razrješava nagla smjena.' },
+    { l: 3, q: 'Tko je formulirao „željezni zakon oligarhije”?',
+      o: ['Robert Michels', 'Gaetano Mosca', 'C. Wright Mills', 'Robert Dahl'],
+      why: 'Michels: svaka velika organizacija, pa i demokratska stranka ili sindikat, završi pod vlašću malog vodstva. „Tko kaže organizacija, kaže oligarhija.”' },
+
+    // Lekcija 4 — sociologija rizika i straha
+    { l: 4, q: 'Koji je pojam 1986. uveo njemački sociolog Ulrich Beck?',
+      o: ['Društvo rizika', 'Kultura straha', 'Elita moći', 'Anomija'],
+      why: 'Beck u djelu „Risikogesellschaft” opisuje moderno društvo koje proizvodi globalne, nevidljive rizike. „Kultura straha” je Furedijev pojam.' },
+    { l: 4, q: 'Po čemu se, prema Becku, moderni rizici razlikuju od opasnosti iz prošlosti?',
+      o: ['Često su globalni, nevidljivi i proizvod su samog ljudskog djelovanja', 'Manji su i lakše ih je kontrolirati', 'Pogađaju samo siromašne zemlje', 'Uvijek su prirodnog podrijetla'],
+      why: 'Poplave i glad vide se odmah. Zagađenje, radijacija i klimatske promjene nastaju ljudskom tehnologijom i ne poznaju granice.' },
+    { l: 4, q: 'Što je glavna teza Franka Furedija o „kulturi straha”?',
+      o: ['Društvo nije postalo opasnije, nego je naučilo biti prestrašeno', 'Strah je uvijek razmjeran stvarnoj opasnosti', 'Moderni ljudi ne osjećaju strah', 'Strah je isključivo biološka reakcija'],
+      why: 'Furedi tvrdi da živimo sigurnije nego ikad, a osjećamo se ugroženije nego ikad, jer je strah postao kulturna i moralna kategorija.' },
+    { l: 4, q: 'Što je percepcija rizika?',
+      o: ['Subjektivna procjena koliko je nešto opasno', 'Statistički izmjerena smrtnost', 'Zakonski propisana razina opasnosti', 'Broj nesreća u jednoj godini'],
+      why: 'Percepcija se često znatno razlikuje od stvarne, izmjerene opasnosti. Upravo taj jaz proučava sociologija rizika.' },
+    { l: 4, q: 'Zašto se, prema sociologiji rizika, više bojimo pauka nego komaraca?',
+      o: ['Jer naš strah nije računica statistike, nego ga oblikuju kultura i društvo', 'Jer su pauci opasniji od komaraca', 'Jer komarci ne prenose bolesti', 'Jer je strah od komaraca zakonom zabranjen'],
+      why: 'Komarci godišnje usmrte stotine tisuća ljudi, pauci gotovo nikoga. Strah očito ne prati stvarnu opasnost.' },
+    { l: 4, q: 'Zašto se zagađenje zraka iz fosilnih goriva teže doživljava kao hitan problem?',
+      o: ['Jer djeluje sporo i raspršeno, bez jedne prepoznatljive katastrofe', 'Jer ne uzrokuje nikakve bolesti', 'Jer se događa samo u drugim zemljama', 'Jer ga mediji svakodnevno prikazuju kao katastrofu'],
+      why: 'To su „difuzne žrtve”: mnogo ljudi strada polako i bez jedne dramatične slike koja bi završila u vijestima.' },
+    { l: 4, q: 'Što je normalizacija rizika?',
+      o: ['Proces kojim stalno prisutna opasnost počne izgledati bezopasno', 'Uvođenje zakonskih normi o sigurnosti', 'Smanjivanje stvarne opasnosti', 'Pretvaranje rizika u statistiku'],
+      why: 'Što nešto češće vidimo bez neposredne posljedice, to nam se manje čini opasnim, npr. vožnja automobilom.' },
+    { l: 4, q: 'Koja perspektiva strah tumači kao oruđe kojim moćni upravljaju masama?',
+      o: ['Konfliktna teorija', 'Funkcionalizam', 'Simbolički interakcionizam', 'Pozitivizam'],
+      why: 'Konfliktna teorija pita tko ima korist od straha: prestrašen građanin lakše prihvaća kontrolu i gubitak slobode.' },
+    { l: 4, q: 'Kako funkcionalizam gleda na zajednički strah od bolesti ili katastrofa?',
+      o: ['Kao poticaj na kolektivnu akciju koja jača društvo (bolnice, zakoni, vatrogasci)', 'Kao sredstvo kojim elite kontroliraju mase', 'Kao značenje koje ljudi stvaraju u razgovoru', 'Kao znak raspada društva'],
+      why: 'Za funkcionalizam percepcija rizika ima funkciju: pokreće prilagodbu koja koristi cijelom sustavu.' },
+
   ];
 
-  var SIZE = { all: 12, 1: 10, 2: 10 };
-  var LABEL = { 1: 'Lekcija 1', 2: 'Lekcija 2' };
-  var LINK = { 1: 'sociologija1perspektive.html', 2: 'sociologija2istrazivanje.html' };
+  var LESSONS = [1, 2, 3, 4];
+  var SIZE = { all: 12, 1: 10, 2: 10, 3: 6, 4: 8 };
+  var LABEL = { 1: 'Lekcija 1', 2: 'Lekcija 2', 3: 'Lekcija 3', 4: 'Lekcija 4', 5: 'Lekcija 5' };
+  var LINK = { 1: 'sociologija1perspektive.html', 2: 'sociologija2istrazivanje.html', 3: 'sociologija3elite.html',
+               4: 'sociologija4rizik.html', 5: 'sociologija5devijantnost.html' };
 
   var $ = function (id) { return document.getElementById(id); };
   var screens = { start: $('quizStart'), play: $('quizPlay'), end: $('quizEnd') };
@@ -786,8 +871,9 @@
 
   // Broj pitanja uz svaki opseg.
   document.querySelector('[data-count="all"]').textContent = SIZE.all + ' pitanja';
-  document.querySelector('[data-count="1"]').textContent = SIZE[1] + ' pitanja';
-  document.querySelector('[data-count="2"]').textContent = SIZE[2] + ' pitanja';
+  LESSONS.forEach(function (l) {
+    document.querySelector('[data-count="' + l + '"]').textContent = SIZE[l] + ' pitanja';
+  });
 
   function pickScope(btn, focus) {
     scopeBtns.forEach(function (b) {
@@ -811,8 +897,10 @@
 
   function start() {
     if (scope === 'all') {
-      var half = SIZE.all / 2;
-      run = shuffle(shuffle(byLesson(1)).slice(0, half).concat(shuffle(byLesson(2)).slice(0, half)));
+      var each = SIZE.all / LESSONS.length;
+      run = shuffle(LESSONS.reduce(function (acc, l) {
+        return acc.concat(shuffle(byLesson(l)).slice(0, each));
+      }, []));
     } else {
       run = shuffle(byLesson(+scope)).slice(0, SIZE[scope]);
     }
@@ -898,7 +986,7 @@
     // Rezultat po lekcijama.
     var rows = $('resByLesson');
     rows.innerHTML = '';
-    [1, 2].forEach(function (l) {
+    LESSONS.forEach(function (l) {
       var items = run.filter(function (r) { return r.src.l === l; });
       if (!items.length) return;
       var ok = items.filter(function (r) { return r.opts[r.picked].right; }).length;

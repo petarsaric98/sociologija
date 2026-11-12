@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lekcija 6: Sociologija novca — Društvo u fokusu</title>
-<meta name="description" content="Zašto komad papira vrijedi? Sociologija novca: novac kao povjerenje, Simmelova Filozofija novca, tri perspektive, Bourdieuovi oblici kapitala i granice tržišta.">
+<meta name="description" content="Zašto komad papira vrijedi? Sociologija novca: novac kao povjerenje, Simmelova Filozofija novca, tri perspektive, Bourdieuovi oblici kapitala, granice tržišta, porezi u Hrvatskoj i mirovinski sustav s tri stupa.">
 <meta name="theme-color" content="#0b1826">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -207,6 +207,30 @@
   }
   .vq h4 { font-size: 1.05rem; margin-bottom: .4rem; }
   .vq p { font-size: .92rem; color: var(--muted); margin: 0; }
+
+  /* --- kalkulatori: porez i mirovina --- */
+  .calc__inputs { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin-bottom: 1.2rem; }
+  .calc__field { display: grid; gap: .4rem; font-size: .85rem; color: var(--muted); font-weight: 600; }
+  .calc__field b { color: var(--ink); }
+  .calc__field input[type=number], .calc__field select {
+    font: inherit; font-size: .95rem; font-weight: 500; color: var(--ink);
+    padding: .6rem .75rem; border-radius: var(--r-md); border: 1px solid var(--line-2); background: var(--surface);
+  }
+  .calc__field input[type=range] { width: 100%; accent-color: var(--brand-2); }
+  .calc__bar { display: flex; height: 1.6rem; border-radius: 999px; overflow: hidden; border: 1px solid var(--line); }
+  .calc__bar span { display: block; height: 100%; transition: width .3s ease; }
+  .calc__legend { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-top: .8rem; font-size: .82rem; color: var(--muted); }
+  .calc__legend i { display: inline-block; width: .75rem; height: .75rem; border-radius: 3px; margin-right: .35rem; vertical-align: -1px; }
+  .calc__table td:last-child { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .calc__table tr.is-total th, .calc__table tr.is-total td { font-weight: 700; color: var(--ink); }
+  .calc__table { min-width: 0; }
+  .calc__table tbody th { width: auto; }
+  .pen-out { display: grid; gap: .8rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr)); }
+  .pen-out__box { padding: 1rem 1.1rem; border-radius: var(--r-md); border: 1px solid var(--line); background: var(--surface-2); display: grid; gap: .2rem; }
+  .pen-out__box--ok { background: var(--ok-soft); border-color: color-mix(in srgb, var(--ok) 30%, transparent); }
+  .pen-out__box--gold { background: var(--gold-soft); border-color: color-mix(in srgb, var(--gold) 30%, transparent); }
+  .pen-out__label { font-size: .75rem; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .pen-out__num { font-family: var(--serif); font-size: clamp(1.4rem, 1.1rem + 1.2vw, 1.9rem); color: var(--ink); font-variant-numeric: tabular-nums; }
 </style>
 </head>
 <body>
@@ -229,6 +253,8 @@
         <a class="nav__link" data-spy href="#video">Video</a>
         <a class="nav__link" data-spy href="#bourdieu">Bourdieu</a>
         <a class="nav__link" data-spy href="#granice">Granice tržišta</a>
+        <a class="nav__link" data-spy href="#porezi">Porezi</a>
+        <a class="nav__link" data-spy href="#mirovine">Mirovine</a>
         <a class="nav__link" data-spy href="#provjera">Provjera</a>
       </span>
       <a class="nav__link" href="maturakviz.html">Matura</a>
@@ -265,7 +291,7 @@
       <dl class="hero__meta">
         <div><dt>Ključni pojmovi</dt><dd>Povjerenje · Blaziranost · Komodifikacija</dd></div>
         <div><dt>Teoretičar</dt><dd>Georg Simmel</dd></div>
-        <div><dt>Primjena</dt><dd>Što se ne može kupiti novcem?</dd></div>
+        <div><dt>Primjena</dt><dd>Porezi i mirovine</dd></div>
       </dl>
     </div>
   </header>
@@ -610,6 +636,414 @@
     </div>
   </section>
 
+  <!-- 6b. POREZI ----------------------------------------------------------- -->
+  <section class="section section--alt" id="porezi">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Novac i država</p>
+        <h2>Zašto plaćamo porez?</h2>
+        <p class="lede">
+          Porez je novac koji svi dajemo državi da bi plaćala ono što koristimo <em>zajedno</em>: škole, bolnice,
+          ceste, policiju, vatrogasce i mirovine.
+        </p>
+      </div>
+
+      <div class="grid grid--2">
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--brand">Pojam</span>
+          <h3 style="margin-top:.9rem">Javna dobra</h3>
+          <p class="muted" style="margin:0">
+            Javna dobra koriste svi, a nitko ih ne bi mogao platiti sam. Nitko ne gradi vlastitu cestu ni vlastitu
+            bolnicu. Porezom svatko plati mali dio, a zajedno dobivamo nešto što nitko ne bi imao sam.
+          </p>
+        </div>
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--gold">Pojam</span>
+          <h3 style="margin-top:.9rem">Problem slobodnog jahača</h3>
+          <p class="muted" style="margin:0">
+            Zašto porez nije dobrovoljan? Javna rasvjeta svijetli i onome tko je nije platio. Kad bi plaćanje bilo
+            dobrovoljno, svatko bi čekao da plate drugi, pa ne bi platio nitko. Zato je porez <strong>obvezan</strong>.
+          </p>
+        </div>
+      </div>
+
+      <div class="callout callout--gold reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="callout__icon" aria-hidden="true">🤝</span>
+        <p>
+          <strong>Veza s početkom lekcije: porez je povjerenje.</strong> Ljudi plaćaju porez kad vjeruju da ga plaćaju i
+          drugi i da će država novac potrošiti pošteno. Sociolozi to zovu <b>porezni moral</b>. Kad se proširi
+          priča da „svi varaju”, varaju i oni koji inače ne bi.
+        </p>
+      </div>
+
+      <!-- Najvažniji porezi -->
+      <div class="section-head reveal" style="margin:clamp(2.5rem, 5vw, 3.5rem) 0 1.4rem">
+        <p class="kicker">Hrvatska</p>
+        <h3 style="margin-bottom:.3rem">Najvažniji porezi u Hrvatskoj</h3>
+      </div>
+
+      <div class="table-scroll reveal">
+        <table class="data">
+          <thead>
+            <tr>
+              <th scope="col">Porez</th>
+              <th scope="col">Što je i tko ga plaća</th>
+              <th scope="col">Koliko</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">PDV (porez na dodanu vrijednost)</th>
+              <td>Skriven je u cijeni gotovo svega što kupuješ. Plaća ga svatko tko nešto kupi. Državi donosi najviše novca.</td>
+              <td><strong>25 %</strong>, a za neke proizvode manje: <strong>13 %</strong> (npr. hrana u restoranu) i <strong>5 %</strong> (npr. kruh, mlijeko, knjige, lijekovi)</td>
+            </tr>
+            <tr>
+              <th scope="row">Porez na dohodak</th>
+              <td>Plaća se na plaću i druge prihode građana. Prvih <strong>600 €</strong> mjesečno se ne oporezuje (osobni odbitak).</td>
+              <td>Stopu bira grad, npr. u Zagrebu <strong>23 %</strong>, a na vrlo visoke plaće <strong>33 %</strong>. Mladi do 25 godina porez dobivaju natrag.</td>
+            </tr>
+            <tr>
+              <th scope="row">Doprinosi</th>
+              <td>Nisu porez, ali su obvezni i uzimaju se iz svake plaće. Idu za mirovine i zdravstvo.</td>
+              <td><strong>20 %</strong> bruto plaće za mirovinu, a poslodavac plaća još <strong>16,5 %</strong> za zdravstvo</td>
+            </tr>
+            <tr>
+              <th scope="row">Porez na dobit</th>
+              <td>Plaćaju ga tvrtke na zaradu.</td>
+              <td><strong>10 %</strong> za manje tvrtke, <strong>18 %</strong> za veće</td>
+            </tr>
+            <tr>
+              <th scope="row">Trošarine</th>
+              <td>Posebni porez na gorivo, alkohol i cigarete, skriven u cijeni. Služi i tome da ljudi tih proizvoda kupuju manje.</td>
+              <td>Fiksni iznos po litri ili kutiji</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Kamo ide plaća -->
+      <div class="section-head reveal" style="margin:clamp(2.5rem, 5vw, 3.5rem) 0 1.4rem">
+        <p class="kicker">Primjer</p>
+        <h3 style="margin-bottom:.3rem">Kamo ide tvoja plaća?</h3>
+        <p class="muted" style="margin:0">
+          Plaća u ugovoru zove se <strong>bruto</strong>, a ono što sjedne na račun <strong>neto</strong>. Upiši bruto plaću.
+        </p>
+      </div>
+
+      <div class="card card--pad-lg reveal">
+        <div class="calc">
+          <div class="calc__inputs">
+            <label class="calc__field">
+              <span>Bruto plaća (€ mjesečno)</span>
+              <input type="number" id="taxBruto" min="0" step="50" value="1500" inputmode="numeric">
+            </label>
+          </div>
+          <div class="calc__bar" id="taxBar" aria-hidden="true"></div>
+          <div class="calc__legend" id="taxLegend"></div>
+          <div class="table-scroll" style="margin-top:1.2rem">
+            <table class="data calc__table">
+              <tbody id="taxRows"></tbody>
+            </table>
+          </div>
+          <p class="muted small" style="margin:1rem 0 0">Primjer za Zagreb, za osobu stariju od 25 godina bez djece.</p>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="callout__icon" aria-hidden="true">⚖️</span>
+        <p>
+          <strong>Je li porez pravedan?</strong> Porez na dohodak je <b>progresivan</b>: tko zarađuje više, plaća veći
+          postotak. PDV je za sve isti, ali siromašni troše gotovo sav novac, a bogati dio štede. Zato PDV
+          siromašnije opterećuje više, a niže stope na kruh i mlijeko to malo ublažavaju.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6c. MIROVINE ----------------------------------------------------------- -->
+  <section class="section" id="mirovine">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="kicker">Novac i generacije</p>
+        <h2>Mirovinski sustav: tri stupa</h2>
+        <p class="lede">
+          Od prve plaće 20 % bruto iznosa odlazit će ti na mirovinu. Mirovinski sustav najveći je
+          <em>ugovor među generacijama</em> koji imamo: danas ti plaćaš za bake i djedove, a sutra će netko
+          plaćati za tebe. Hrvatski sustav ima tri stupa.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <article class="card view reveal" style="--accent:#1c5aa3">
+          <p class="view__label">I. stup · obvezni · 15 %</p>
+          <p class="view__quote">„Mi plaćamo njima, netko će plaćati nama.”</p>
+          <p><strong>Generacijska solidarnost.</strong> Doprinosi današnjih radnika odmah se isplaćuju današnjim
+          umirovljenicima. Nema osobnog računa ni ušteđevine. Vodi ga Hrvatski zavod za mirovinsko osiguranje
+          (<strong>HZMO</strong>).</p>
+          <p class="view__key"><b>Rizik:</b> demografija. Ako je radnika sve manje, a umirovljenika sve više, novca nema dovoljno.</p>
+        </article>
+        <article class="card view reveal" style="--accent:#15734f">
+          <p class="view__label">II. stup · obvezni · 5 %</p>
+          <p class="view__quote">„Štedim za sebe.”</p>
+          <p><strong>Individualna kapitalizirana štednja.</strong> Novac ide na tvoj osobni račun u mirovinskom fondu,
+          koji ga ulaže u obveznice i dionice. Novac je tvoj i raste kroz desetljeća.</p>
+          <p class="view__key"><b>Rizik:</b> tržište. Ako burza padne, pada i vrijednost ušteđevine.</p>
+        </article>
+        <article class="card view reveal" style="--accent:#b07a1f">
+          <p class="view__label">III. stup · dobrovoljni</p>
+          <p class="view__quote">„Štedim još malo više.”</p>
+          <p><strong>Dobrovoljna štednja</strong> u dobrovoljnim mirovinskim fondovima. Nitko te ne prisiljava, ali
+          država nagrađuje svaku uplatu poticajem.</p>
+          <p class="view__key"><b>Rizik:</b> isti kao u II. stupu, ali uplate su tvoj izbor.</p>
+        </article>
+      </div>
+
+      <!-- I. stup -->
+      <div class="grid grid--2" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--brand">I. stup</span>
+          <h3 style="margin-top:.9rem">Kako se računa mirovina iz I. stupa</h3>
+          <p class="muted">
+            Mirovina ovisi o tome koliko si dugo radio/radila (<strong>staž</strong>) i koliko si zarađivao/zarađivala
+            u odnosu na prosječnu plaću. Iz toga nastaju <strong>osobni bodovi</strong>, koji se množe s
+            <strong>aktualnom vrijednošću mirovine</strong> (iznosom koji vrijedi jedan bod i koji se usklađuje dvaput
+            godišnje) te s faktorima koji ovise o vrsti mirovine.
+          </p>
+          <p class="muted small" style="margin:0">Mirovine se usklađuju 1. siječnja i 1. srpnja, prema rastu cijena i plaća.</p>
+        </div>
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--brand">Uvjeti u 2026.</span>
+          <h3 style="margin-top:.9rem">Kada se ide u mirovinu</h3>
+          <p class="muted">
+            <strong>Starosna mirovina:</strong> muškarci s 65 godina, žene s 64 godine, uz najmanje 15 godina staža.
+            Dob za žene raste za tri mjeseca godišnje, dok se do 2030. ne izjednači s muškarcima.<br>
+            <strong>Prijevremena mirovina:</strong> muškarci sa 60 godina i 35 godina staža, žene s 59 godina i 34
+            godine staža, ali uz trajno umanjenu mirovinu. Od 2026. to umanjenje prestaje kad umirovljenik navrši 70.
+          </p>
+          <p class="muted small" style="margin:0">Od 65. godine umirovljenik može raditi i puno radno vrijeme, uz isplatu pola mirovine.</p>
+        </div>
+      </div>
+
+      <div class="callout callout--gold reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="callout__icon" aria-hidden="true">👵</span>
+        <p>
+          <strong>Demografski problem.</strong> Kad je sustav generacijske solidarnosti nastajao, na jednog umirovljenika
+          dolazilo je nekoliko radnika. Danas u Hrvatskoj na jednog umirovljenika dolazi tek oko 1,3 osiguranika.
+          Doprinosi zato nisu dovoljni, pa znatan dio mirovina država plaća iz proračuna, dakle <em>iz poreza</em>.
+          Upravo je zbog toga 2002. uveden II. stup: da dio budućih mirovina ne ovisi o tome koliko će djece
+          roditi sljedeća generacija.
+        </p>
+      </div>
+
+      <!-- II. stup detaljno -->
+      <div class="section-head reveal" style="margin:clamp(2.5rem, 5vw, 3.5rem) 0 1.4rem">
+        <p class="kicker">Najvažnije za tebe</p>
+        <h3 style="margin-bottom:.3rem">II. stup: tvoj osobni mirovinski račun</h3>
+        <p class="muted" style="margin:0">
+          II. stup je obvezan za svakoga tko se prvi put zaposli prije 40. godine, dakle i za tebe. Odluke koje
+          ćeš donijeti na prvom poslu mogu ti za 45 godina značiti razliku od nekoliko desetaka tisuća eura.
+        </p>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card reveal">
+          <span class="vq__n">1</span>
+          <h4>Novac je tvoj</h4>
+          <p class="muted small" style="margin:0">Svaki mjesec 5 % tvoje bruto plaće sjeda na tvoj osobni račun. To nije
+          porez ni državni novac, nego <strong>tvoja imovina</strong>. Ako umreš prije mirovine, a nitko nema pravo na
+          obiteljsku mirovinu, ušteđevina se <strong>nasljeđuje</strong>.</p>
+        </div>
+        <div class="card reveal">
+          <span class="vq__n">2</span>
+          <h4>Biraš fond u roku od mjesec dana</h4>
+          <p class="muted small" style="margin:0">Kad se prvi put zaposliš, imaš mjesec dana da izabereš mirovinski
+          fond. Ako ne izabereš, <strong>REGOS</strong> (Središnji registar osiguranika) rasporedit će te sam. Danas
+          postoje četiri mirovinska društva: <strong>Allianz ZB</strong>, <strong>Erste</strong>, <strong>PBZ Croatia
+          osiguranje</strong> i <strong>Raiffeisen</strong>.</p>
+        </div>
+        <div class="card reveal">
+          <span class="vq__n">3</span>
+          <h4>Netko pazi na fondove</h4>
+          <p class="muted small" style="margin:0">REGOS vodi račune i prikuplja uplate, mirovinska društva ulažu novac,
+          a <strong>HANFA</strong> (Hrvatska agencija za nadzor financijskih usluga) nadzire da ulažu po zakonu. Fondovi
+          naplaćuju malu godišnju naknadu za upravljanje, koja je zakonom ograničena.</p>
+        </div>
+      </div>
+
+      <div class="grid grid--2" style="margin-top:1rem">
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--ok">Brojke</span>
+          <h3 style="margin-top:.9rem">Koliko je to novca?</h3>
+          <p class="muted" style="margin:0">
+            U II. stupu je krajem listopada 2026. bilo oko <strong>2,43 milijuna</strong> članova, a fondovi su
+            krajem rujna 2026. imali oko <strong>29 milijardi eura</strong> neto imovine. To su najveći institucionalni
+            ulagači u Hrvatskoj, vlasnici velikog dijela dionica hrvatskih tvrtki i državnih obveznica.
+          </p>
+        </div>
+        <div class="card card--pad-lg reveal">
+          <span class="tag tag--gold">Promjena fonda</span>
+          <h3 style="margin-top:.9rem">Smiješ promijeniti mišljenje</h3>
+          <p class="muted" style="margin:0">
+            Mirovinsko društvo smiješ promijeniti jednom godišnje. U prve tri godine članstva plaća se mala izlazna
+            naknada (0,8 %, 0,4 % pa 0,2 % ušteđevine), a nakon tri godine promjena je besplatna. Kategoriju
+            (A, B ili C) unutar istog društva možeš mijenjati jednom godišnje, bez naknade.
+          </p>
+        </div>
+      </div>
+
+      <div class="section-head reveal" style="margin:clamp(2rem, 4vw, 3rem) 0 1.2rem">
+        <h3 style="margin-bottom:.3rem">Kategorije A, B i C: rizik i prinos</h3>
+        <p class="muted" style="margin:0">Svako društvo ima tri fonda. Razlikuju se po tome koliko smiju ulagati u
+        dionice, koje u dugom roku više donose, ali kratkoročno jače padaju.</p>
+      </div>
+
+      <div class="table-scroll reveal">
+        <table class="data">
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Kategorija A</th>
+              <th scope="col">Kategorija B</th>
+              <th scope="col">Kategorija C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Rizik</th>
+              <td>Najveći</td>
+              <td>Srednji</td>
+              <td>Najmanji</td>
+            </tr>
+            <tr>
+              <th scope="row">Dionice</th>
+              <td>Najviše 65 % imovine</td>
+              <td>Najviše 40 %</td>
+              <td>Nisu dopuštene</td>
+            </tr>
+            <tr>
+              <th scope="row">Državne obveznice</th>
+              <td>Najmanje 30 %</td>
+              <td>Najmanje 50 %</td>
+              <td>Najmanje 70 %</td>
+            </tr>
+            <tr>
+              <th scope="row">Za koga</th>
+              <td>Više od 10 godina do mirovine</td>
+              <td>Barem 5 godina do mirovine</td>
+              <td>Manje od 5 godina do mirovine</td>
+            </tr>
+            <tr>
+              <th scope="row">Prosječni godišnji prinos od početka rada</th>
+              <td><strong>8,96 %</strong> (od 2014.)</td>
+              <td><strong>5,64 %</strong> (od 2002.)</td>
+              <td><strong>3,04 %</strong> (od 2014.)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted small" style="margin-top:.7rem">Prinosi: HANFA, stanje 30. rujna 2026. Prošli prinosi ne jamče buduće.
+      Kad mladi član ne izabere sam, REGOS ga raspoređuje u A ili B. Pet godina prije mirovine član iz A prelazi u B.</p>
+
+      <!-- Kalkulator složene kamate -->
+      <div class="card card--pad-lg reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="tag tag--ok">Kalkulator</span>
+        <h3 style="margin-top:.9rem">Čarolija složene kamate</h3>
+        <p class="muted">Koliko bi se moglo skupiti u II. stupu? Zarada fonda svake se godine ponovno ulaže, pa i
+        ona zarađuje. Pomakni klizače.</p>
+        <div class="calc">
+          <div class="calc__inputs">
+            <label class="calc__field">
+              <span>Bruto plaća: <b id="penBrutoOut">1.500 €</b></span>
+              <input type="range" id="penBruto" min="1000" max="4000" step="100" value="1500">
+            </label>
+            <label class="calc__field">
+              <span>Godine rada: <b id="penYearsOut">40</b></span>
+              <input type="range" id="penYears" min="5" max="45" step="1" value="40">
+            </label>
+            <label class="calc__field">
+              <span>Godišnji prinos: <b id="penRateOut">5 %</b></span>
+              <input type="range" id="penRate" min="0" max="8" step="0.5" value="5">
+            </label>
+          </div>
+          <div class="pen-out">
+            <div class="pen-out__box">
+              <span class="pen-out__label">Uplatio/uplatila si</span>
+              <span class="pen-out__num" id="penPaid">—</span>
+            </div>
+            <div class="pen-out__box pen-out__box--ok">
+              <span class="pen-out__label">Na računu bi bilo</span>
+              <span class="pen-out__num" id="penTotal">—</span>
+            </div>
+            <div class="pen-out__box pen-out__box--gold">
+              <span class="pen-out__label">Od toga zarada fonda</span>
+              <span class="pen-out__num" id="penGain">—</span>
+            </div>
+          </div>
+          <p class="muted small" style="margin:1rem 0 0">Pojednostavljeno: plaća je cijelo vrijeme ista, prinos je svake
+          godine jednak, a ne računaju se naknade ni inflacija. Stvarni prinosi skaču gore-dolje iz godine u godinu.</p>
+        </div>
+      </div>
+
+      <!-- Umirovljenje -->
+      <div class="grid grid--2" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <div class="card duo__side reveal" style="--accent:#15734f">
+          <div class="duo__head"><span class="duo__icon" aria-hidden="true">🧩</span><h3>Mogućnost 1: oba stupa</h3></div>
+          <p class="muted" style="margin:0">Dobivaš <strong>osnovnu mirovinu</strong> iz I. stupa (od HZMO-a) i
+          mirovinu iz II. stupa. Ušteđevina iz II. stupa prelazi u <strong>mirovinsko osiguravajuće društvo</strong>
+          (danas HRMOD ili RMOD), koje ti je isplaćuje doživotno i usklađuje s inflacijom. Najviše 20 % ušteđevine
+          možeš podići odjednom, uz prvu mirovinu.</p>
+        </div>
+        <div class="card duo__side reveal" style="--accent:#1c5aa3">
+          <div class="duo__head"><span class="duo__icon" aria-hidden="true">🔁</span><h3>Mogućnost 2: samo I. stup</h3></div>
+          <p class="muted" style="margin:0">Ušteđevinu iz II. stupa prenosiš u državni proračun, a mirovina ti se
+          računa kao da nikad nisi bio/bila u II. stupu. To se isplati kad je ušteđevina mala, a mirovina iz
+          I. stupa bila bi veća. Prije odluke dobiješ izračun obje mogućnosti i biraš povoljniju.</p>
+        </div>
+      </div>
+
+      <div class="callout reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="callout__icon" aria-hidden="true">🔍</span>
+        <p>
+          <strong>Sociološki pogled: tko snosi rizik?</strong> U I. stupu rizik je <em>zajednički</em>: ako
+          generacija ima manje djece, svi dobivaju manje. U II. stupu rizik je <em>osobni</em>: tvoja mirovina ovisi o
+          tvom fondu i o burzi. To je primjer onoga što je Ulrich Beck iz 4. lekcije zvao <b>individualizacijom
+          rizika</b>: društvo prebacuje rizike sa zajednice na pojedinca. Zato se o II. stupu stalno raspravlja.
+          Neke su ga zemlje, primjerice Mađarska 2010., praktički ukinule i ušteđevinu prenijele državi.
+        </p>
+      </div>
+
+      <!-- III. stup -->
+      <div class="card card--pad-lg reveal" style="margin-top:clamp(1.5rem, 3vw, 2rem)">
+        <span class="tag tag--gold">III. stup</span>
+        <h3 style="margin-top:.9rem">Dobrovoljna štednja i državni poticaj</h3>
+        <p class="muted">
+          U dobrovoljni mirovinski fond može uplaćivati svatko, koliko želi. Država svake godine na uplate dodaje
+          <strong>15 % poticaja</strong>, najviše <strong>99,54 €</strong> godišnje. Za puni poticaj treba uplatiti
+          663,61 € godišnje, otprilike 55 € mjesečno. To je 15 % zarade prije nego što fond išta zaradi. Fondovi
+          mogu biti <em>otvoreni</em> (za sve) ili <em>zatvoreni</em> (za zaposlenike neke tvrtke ili članove
+          sindikata), a i poslodavac može uplaćivati za radnike, do određenog iznosa bez poreza.
+        </p>
+        <p class="muted small" style="margin:0">Ušteđevina se može početi koristiti od 55. godine.</p>
+      </div>
+
+      <!-- Odluka -->
+      <div class="section-head reveal" style="margin:clamp(2rem, 4vw, 3rem) 0 1.4rem">
+        <h3 style="margin-bottom:.3rem">Tvoja odluka: prvi posao, prvi fond</h3>
+        <p class="muted small" style="margin:0">Imaš 19 godina i upravo si potpisao/potpisala prvi ugovor o radu. Koju
+        kategoriju II. stupa biraš? Klikni i pročitaj komentar.</p>
+      </div>
+      <div class="card card--flat market__row reveal">
+        <p class="market__q">Do mirovine ti je oko 46 godina.</p>
+        <div class="market__btns" id="fundBtns">
+          <button type="button" class="sort__btn" data-k="a">A</button>
+          <button type="button" class="sort__btn" data-k="b">B</button>
+          <button type="button" class="sort__btn" data-k="c">C</button>
+        </div>
+        <p class="market__note" id="fundNote" hidden></p>
+      </div>
+    </div>
+  </section>
+
   <!-- 7. POJMOVNIK ----------------------------------------------------------- -->
   <section class="section section--alt">
     <div class="wrap">
@@ -643,6 +1077,30 @@
           <div class="glossary__term">Komodifikacija</div>
           <div class="glossary__def">Pretvaranje u robu onoga što prije nije imalo cijenu (zdravlje, obrazovanje, pažnja, voda).</div>
         </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Javna dobra</div>
+          <div class="glossary__def">Dobra koja koriste svi i od kojih je teško nekoga isključiti (javna rasvjeta, obrana, ceste). Financiraju se porezima.</div>
+        </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Problem slobodnog jahača</div>
+          <div class="glossary__def">Kad pojedinac koristi zajedničko dobro, a ne plaća za njega. Ako tako postupe svi, dobro nestaje. Zato je porez obvezan.</div>
+        </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Porezni moral</div>
+          <div class="glossary__def">Spremnost građana da plaćaju porez. Raste s povjerenjem u državu i u to da i drugi plaćaju.</div>
+        </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Progresivni porez</div>
+          <div class="glossary__def">Porez kod kojeg oni s višim dohotkom plaćaju veći postotak (u Hrvatskoj porez na dohodak). PDV, naprotiv, ima regresivan učinak.</div>
+        </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Generacijska solidarnost</div>
+          <div class="glossary__def">Načelo I. mirovinskog stupa: doprinosi današnjih radnika isplaćuju se današnjim umirovljenicima.</div>
+        </div>
+        <div class="glossary__row">
+          <div class="glossary__term">Kapitalizirana štednja</div>
+          <div class="glossary__def">Načelo II. i III. stupa: svatko štedi na osobnom računu, a fond ulaže novac i uvećava ga prinosom.</div>
+        </div>
       </div>
     </div>
   </section>
@@ -652,7 +1110,7 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="kicker">Provjeri se</p>
-        <h2>Šest pitanja prije kraja</h2>
+        <h2>Devet pitanja prije kraja</h2>
         <p class="lede">Bez ocjene i bez pritiska. Pitanja su u stilu državne mature.</p>
       </div>
 
@@ -845,6 +1303,107 @@
     marketHost.appendChild(row);
   });
 
+  /* --- Kalkulator: kamo ide plaća ---------------------------------------- */
+  function eur(x) {
+    return x.toLocaleString('hr-HR', { minimumFractionDigits: 2, maximumFractionDigits: 2 }) + ' €';
+  }
+  function eur0(x) {
+    return Math.round(x).toLocaleString('hr-HR') + ' €';
+  }
+
+  var taxBruto = document.getElementById('taxBruto');
+  var taxBar = document.getElementById('taxBar');
+  var taxLegend = document.getElementById('taxLegend');
+  var taxRows = document.getElementById('taxRows');
+
+  function calcTax() {
+    var b = Math.max(0, Number(taxBruto.value) || 0);
+    var mio = b * 0.20;
+    var doh = b - mio;
+    var osn = Math.max(0, doh - 600);
+    var porez = Math.min(osn, 5000) * 0.23 + Math.max(0, osn - 5000) * 0.33;
+    var neto = doh - porez;
+
+    var parts = [
+      { l: 'Neto (tebi)', v: neto, c: '#15734f' },
+      { l: 'Mirovina (doprinosi)', v: mio, c: '#1c5aa3' },
+      { l: 'Porez na dohodak', v: porez, c: '#a8272f' }
+    ];
+    taxBar.innerHTML = '';
+    taxLegend.innerHTML = '';
+    parts.forEach(function (p) {
+      var pct = b > 0 ? p.v / b * 100 : 0;
+      var s = document.createElement('span');
+      s.style.width = pct + '%';
+      s.style.background = p.c;
+      taxBar.appendChild(s);
+      var g = document.createElement('span');
+      g.innerHTML = '<i style="background:' + p.c + '"></i>';
+      g.appendChild(document.createTextNode(p.l + ' ' + pct.toLocaleString('hr-HR', { maximumFractionDigits: 1 }) + ' %'));
+      taxLegend.appendChild(g);
+    });
+
+    var rows = [
+      ['Bruto plaća', eur(b), ''],
+      ['− doprinosi za mirovinu (20 %)', eur(mio), ''],
+      ['− porez na dohodak (23 % na sve iznad 600 €)', eur(porez), ''],
+      ['= NETO plaća', eur(neto), 'is-total']
+    ];
+    taxRows.innerHTML = '';
+    rows.forEach(function (r) {
+      var tr = document.createElement('tr');
+      if (r[2]) tr.className = r[2];
+      var th = document.createElement('th');
+      th.scope = 'row';
+      th.textContent = r[0];
+      var td = document.createElement('td');
+      td.textContent = r[1];
+      tr.appendChild(th);
+      tr.appendChild(td);
+      taxRows.appendChild(tr);
+    });
+  }
+  taxBruto.addEventListener('input', calcTax);
+  calcTax();
+
+  /* --- Kalkulator: II. stup ---------------------------------------------- */
+  var penBruto = document.getElementById('penBruto');
+  var penYears = document.getElementById('penYears');
+  var penRate = document.getElementById('penRate');
+
+  function calcPen() {
+    var b = Number(penBruto.value), n = Number(penYears.value), r = Number(penRate.value) / 100;
+    var c = b * 0.05, months = n * 12;
+    var rm = Math.pow(1 + r, 1 / 12) - 1;
+    var total = rm === 0 ? c * months : c * (Math.pow(1 + rm, months) - 1) / rm;
+    var paid = c * months;
+    document.getElementById('penBrutoOut').textContent = eur0(b);
+    document.getElementById('penYearsOut').textContent = n;
+    document.getElementById('penRateOut').textContent = String(penRate.value).replace('.', ',') + ' %';
+    document.getElementById('penPaid').textContent = eur0(paid);
+    document.getElementById('penTotal').textContent = eur0(total);
+    document.getElementById('penGain').textContent = eur0(total - paid);
+  }
+  [penBruto, penYears, penRate].forEach(function (el) { el.addEventListener('input', calcPen); });
+  calcPen();
+
+  /* --- Odluka: koja kategorija? ------------------------------------------ */
+  var fundNotes = {
+    a: 'Razuman izbor za mladog člana. Pred tobom je više od 40 godina, pa imaš vremena preživjeti i velike padove burze, poput onih 2008. i 2020. U dugom roku dionice su u prosjeku donosile više. Ali A nije za one koji panično mijenjaju fond kad burza padne: tko izađe na dnu, privremeni gubitak pretvori u stvarni.',
+    b: 'Srednji put: manje se ljulja, ali i manje raste. Razlika od dva postotna boda prinosa kroz 40 godina, zbog složene kamate, može značiti desetke tisuća eura. Isprobaj u kalkulatoru 5 % i 7 %. Mnogi završe u B jer o tome ne razmišljaju, a to je u redu samo ako je svjesna odluka.',
+    c: 'Najsigurnije na kratki rok, ali za 46 godina vjerojatno najskuplji izbor: nizak prinos jedva prati rast cijena. Kategorija C zamišljena je za one kojima je mirovina blizu, pa si ne mogu priuštiti da burza padne baš godinu prije umirovljenja. Sociološki zanimljivo: ljudi često biraju „sigurno” i kad im to u dugom roku šteti.'
+  };
+  var fundBtns = document.getElementById('fundBtns');
+  var fundNote = document.getElementById('fundNote');
+  Array.prototype.forEach.call(fundBtns.children, function (b) {
+    b.addEventListener('click', function () {
+      Array.prototype.forEach.call(fundBtns.children, function (x) { x.classList.remove('is-right'); });
+      b.classList.add('is-right');
+      fundNote.textContent = fundNotes[b.getAttribute('data-k')];
+      fundNote.hidden = false;
+    });
+  });
+
   /* --- Provjera znanja --------------------------------------------------- */
   var questions = [
     {
@@ -902,6 +1461,34 @@
       ],
       a: 1,
       why: 'Novac je istisnuo moralnu obvezu: „platim i kasnim bez grižnje savjesti”. Kašnjenja su ostala visoka i nakon ukidanja kazne.'
+    },
+    {
+      q: 'Zašto je plaćanje poreza obvezno, a ne dobrovoljno?',
+      o: [
+        'Zbog problema slobodnog jahača: javna dobra koristio bi i onaj tko ne plati, pa bi svi čekali da plate drugi',
+        'Zato što država ne zna koliko ljudi zarađuju',
+        'Zato što bi inače porez bio previsok',
+        'Zato što su porezi nastali tek u 20. stoljeću'
+      ],
+      a: 0,
+      why: 'Javna rasvjeta svijetli i onome tko je nije platio. Kad bi plaćanje bilo dobrovoljno, isplatilo bi se ne platiti, pa bi dobro nestalo.'
+    },
+    {
+      q: 'Koji porez u Hrvatskoj ima regresivan učinak, jer siromašnije opterećuje razmjerno više?',
+      o: ['Porez na dohodak', 'Porez na dodanu vrijednost (PDV)', 'Porez na nasljedstva i darove', 'Porez na dobit'],
+      a: 1,
+      why: 'Stopa PDV-a ista je za sve, ali siromašni troše gotovo cijeli prihod, a bogati dio štede. Porez na dohodak, naprotiv, je progresivan.'
+    },
+    {
+      q: 'Na kojem se načelu temelji I. mirovinski stup?',
+      o: [
+        'Svatko štedi na osobnom računu',
+        'Generacijska solidarnost: doprinosi današnjih radnika isplaćuju se današnjim umirovljenicima',
+        'Dobrovoljne uplate uz državni poticaj',
+        'Ulaganje u dionice na burzi'
+      ],
+      a: 1,
+      why: 'Osobni račun i ulaganje obilježja su II. stupa, a dobrovoljne uplate s poticajem III. stupa.'
     }
   ];
 
